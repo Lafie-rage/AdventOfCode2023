@@ -12,17 +12,17 @@ fun main() {
 
 object Day1 {
 
-    fun firstPart(messages: List<String>): Int = messages.map { message ->
+    fun firstPart(messages: List<String>): Int = messages.sumOf { message ->
         val firstNumber = message.first { it.isDigit() }.digitToInt()
         val lastNumber = message.last { it.isDigit() }.digitToInt()
-        return@map (firstNumber * 10) + lastNumber
-    }.sum()
+        return@sumOf (firstNumber * 10) + lastNumber
+    }
 
-    fun secondPart(messages: List<String>): Int = messages.map { message ->
+    fun secondPart(messages: List<String>): Int = messages.sumOf { message ->
         val firstNumber = getFirstNumber(message)
         val lastNumber = getLastNumber(message)
-        return@map (firstNumber * 10) + lastNumber
-    }.sum()
+        return@sumOf (firstNumber * 10) + lastNumber
+    }
 
     private fun getFirstNumber(message: String): Int {
         var subMessage = message
